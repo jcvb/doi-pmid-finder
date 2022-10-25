@@ -1,6 +1,6 @@
 {
   "name": "doi-pmid-finder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Find and validate all Doi(s), Pmid(s) on a string, returning a array of results.",
   "main": "index.js",
   "repository": {
