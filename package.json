@@ -7,6 +7,7 @@
     "type": "git",
     "url": "https://github.com/jcvb/doi-pmid-finder"
   },
+  "homepage": "https://github.com/jcvb/doi-pmid-finder.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
