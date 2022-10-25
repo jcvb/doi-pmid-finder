@@ -1,5 +1,6 @@
 const doiRegex = require("doi-regex");
 const axios = require("axios");
+const Set = require("core-js/actual/set");
 
 async function doiPmidFinder(string) {
   if (string === undefined) throw new Error("Your string is empty");
@@ -43,8 +44,8 @@ function cleanPmidResponse(pmidResponse) {
   return newList;
 }
 
-async function validatePmidList(pmidList) {
-  return await axios.get(
+function validatePmidList(pmidList) {
+  return axios.get(
     `https://proxy-api-168602.appspot.com/https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${pmidList.join(
       ","
     )}&version=2.0`
