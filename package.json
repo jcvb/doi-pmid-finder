@@ -1,7 +1,7 @@
 {
   "name": "doi-pmid-finder",
   "version": "1.0.0",
-  "description": "Find a doi or a pmid in a text string",
+  "description": "Find a doi or a pmid in a string",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
