@@ -1,5 +1,4 @@
 const doiRegex = require("doi-regex");
-const axios = require("axios");
 const Set = require("core-js/actual/set");
 
 async function doiPmidFinder(string) {
@@ -45,7 +44,7 @@ function cleanPmidResponse(pmidResponse) {
 }
 
 function validatePmidList(pmidList) {
-  return axios.get(
+  return fetch(
     `https://proxy-api-168602.appspot.com/https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${pmidList.join(
       ","
     )}&version=2.0`
