@@ -17,12 +17,20 @@ $ npm install doi-pmid-finder
 const doiPmidFinder = require("doi-pmid-finder");
 
 doiPmidFinder(
-  "unicorn 10.1000/xyz000 10.1000/xyz000 10.1000/xyz000 10.1000/xyz000 https://onlinelibrary.wiley.com/doi/10.1111/all.14449  https://link.springer.com/article/10.1007/s10456-021-09805-6  5454454 34343 3333 12345 juan  4444 99999999999999999  0000 10.1186/s12879-021-06357-4 https://www.pnas.org/doi/full/10.1073/pnas.2203437119"
+  "unicorn 10.1000/xyz000 10.1000/xyz000 10.1000/xyz000 10.1000/xyz000 https://onlinelibrary.wiley.com/doi/10.1111/all.14449  https://link.springer.com/article/10.1007/s10456-021-09805-6  5454454 34343 3333 12345 juan  4444 99999999999999999  0000 10.1186/s12879-021-06357-4 https://www.pnas.org/doi/full/10.1073/pnas.2203437119",
+  { type: "single" }
 ).then((response) => {
   console.log(response);
 });
 
 ```
+
+## Config
+
+
+### type
+
+Type is optional, ussing type = "single" return the first pmid or doi that the library find.
 
 
 ## API
@@ -31,8 +39,16 @@ doiPmidFinder(
 
 Returns a array of doi(s) and pmid(s) removing all repeated ids. The pmid are validated on ncbi API (https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi)
 
-#### Example
+#### Example 
 ```js
+doiPmidFinder(
+  "unicorn 10.1000/xyz000 10.1000/xyz000 10.1000/xyz000 10.1000/xyz000 https://onlinelibrary.wiley.com/doi/10.1111/all.14449  https://link.springer.com/article/10.1007/s10456-021-09805-6  5454454 34343 3333 12345 juan  4444 99999999999999999  0000 10.1186/s12879-021-06357-4 https://www.pnas.org/doi/full/10.1073/pnas.2203437119",
+).then((response) => {
+  console.log(response);
+});
+
+// Output response:
+
 {
   data: {
     doiList: [
@@ -45,5 +61,18 @@ Returns a array of doi(s) and pmid(s) removing all repeated ids. The pmid are va
     pmidList: [ '5454454', '34343', '3333', '12345', '4444' ]
   }
 }
+
+```
+
+#### Example ussing type = "single"
+```js
+doiPmidFinder(
+  "unicorn 56564 10.1000/xyz000",
+  { type: "single" }
+).then((response) => {
+  console.log(response);
+});
+
+// Output response: 56564
 
 ```
